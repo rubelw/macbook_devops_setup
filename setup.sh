@@ -77,7 +77,7 @@ if ! [ -x "$(command -v git)" ]; then
       echo "Not Proceeding"
     else
       echo "Proceeding"
-      # do proceeding code in here
+      brew install gi
     fi
 else
     echo "#######################"
@@ -85,3 +85,66 @@ else
     echo "#######################"
 fi
 
+
+# Install tgenv
+
+if ! [ -x "$(command -v git)" ]; then
+    echo 'Error: git is not installed.' >&2
+    echo "####################################"
+    echo -n "Would you like to install tgenv.  "
+    echo "####################################"
+    DEFAULT="y"
+    read -e -p "Proceed [Y/n/q]:" PROCEED
+    # adopt the default, if 'enter' given
+    PROCEED="${PROCEED:-${DEFAULT}}"
+    # change to lower case to simplify following if
+    PROCEED="${PROCEED,,}"
+    # condition for specific letter
+    if [ "${PROCEED}" == "q" ] ; then
+      echo "Quitting"
+      exit
+    # condition for non specific letter (ie anything other than q/y)
+    # if you want to have the active 'y' code in the last section
+    elif [ "${PROCEED}" != "y" ] ; then
+      echo "Not Proceeding"
+    else
+      echo "Proceeding"
+      brew install tgenv
+    fi
+else
+    echo "#######################"
+    echo "tgenv is already installed"
+    echo "#######################"
+fi
+
+
+# Install tfenv
+
+if ! [ -x "$(command -v git)" ]; then
+    echo 'Error: git is not installed.' >&2
+    echo "####################################"
+    echo -n "Would you like to install tgenv.  "
+    echo "####################################"
+    DEFAULT="y"
+    read -e -p "Proceed [Y/n/q]:" PROCEED
+    # adopt the default, if 'enter' given
+    PROCEED="${PROCEED:-${DEFAULT}}"
+    # change to lower case to simplify following if
+    PROCEED="${PROCEED,,}"
+    # condition for specific letter
+    if [ "${PROCEED}" == "q" ] ; then
+      echo "Quitting"
+      exit
+    # condition for non specific letter (ie anything other than q/y)
+    # if you want to have the active 'y' code in the last section
+    elif [ "${PROCEED}" != "y" ] ; then
+      echo "Not Proceeding"
+    else
+      echo "Proceeding"
+      brew install tfenv
+    fi
+else
+    echo "#######################"
+    echo "tfenv is already installed"
+    echo "#######################"
+fi
