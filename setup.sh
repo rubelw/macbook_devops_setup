@@ -46,6 +46,11 @@ if ! [ -x "$(command -v brew)" ]; then
 
     printf 'export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"' >> ~/.zshrc
     export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+else
+    echo "#######################"
+    echo "brew already installed"
+    echo "#######################"
+
 fi
 
 
@@ -53,7 +58,9 @@ fi
 
 if ! [ -x "$(command -v git)" ]; then
     echo 'Error: git is not installed.' >&2
+    echo "####################################"
     echo -n "Would you like to install git.  "
+    echo "####################################"
     DEFAULT="y"
     read -e -p "Proceed [Y/n/q]:" PROCEED
     # adopt the default, if 'enter' given
@@ -73,6 +80,8 @@ if ! [ -x "$(command -v git)" ]; then
       # do proceeding code in here
     fi
 else
+    echo "#######################"
     echo "Git is already installed"
+    echo "#######################"
 fi
 
