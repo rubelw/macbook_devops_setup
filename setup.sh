@@ -47,3 +47,32 @@ pretty_print "Installing the most recent verions of some OSX tools"
 
 printf 'export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"' >> ~/.zshrc
 export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+
+
+# Install git
+
+if ! [ -x "$(command -v git)" ]; then
+    echo 'Error: git is not installed.' >&2
+    echo -n "Would you like to install git.  "
+    DEFAULT="y"
+    read -e -p "Proceed [Y/n/q]:" PROCEED
+    # adopt the default, if 'enter' given
+    PROCEED="${PROCEED:-${DEFAULT}}"
+    # change to lower case to simplify following if
+    PROCEED="${PROCEED,,}"
+    # condition for specific letter
+    if [ "${PROCEED}" == "q" ] ; then
+      echo "Quitting"
+      exit
+    # condition for non specific letter (ie anything other than q/y)
+    # if you want to have the active 'y' code in the last section
+    elif [ "${PROCEED}" != "y" ] ; then
+      echo "Not Proceeding"
+    else
+      echo "Proceeding"
+      # do proceeding code in here
+    fi
+else
+    echo "Git is already installed"
+fi
+
