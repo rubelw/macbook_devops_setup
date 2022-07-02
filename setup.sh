@@ -153,6 +153,7 @@ else
     echo "#######################"
     echo "tfenv is already installed"
     echo "#######################xxx"
+    sleep 2
     echo "test"
     my_which tfenv
     tfenv install latest
