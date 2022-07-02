@@ -150,7 +150,7 @@ if ! [ -x "$(command -v git)" ]; then
 else
     echo "#######################"
     echo "tfenv is already installed"
-    echo "#######################"
+    echo "#######################xxx"
     echo "test"
     which tfenv
     tfenv install latest
