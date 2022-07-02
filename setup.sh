@@ -216,7 +216,7 @@ fi
 
 # Install virtualenv
 
-if ! [ -x "$(command -v pipenv)" ]; then
+if ! [ -x "$(command -v virtualenv)" ]; then
     echo 'Error: pipenv is not installed.' >&2
     echo "####################################"
     echo -n "Would you like to install virtualenv.  "
