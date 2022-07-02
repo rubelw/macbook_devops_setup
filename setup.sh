@@ -158,7 +158,7 @@ fi
 
 
 # Install python3
-
+echo "test2"
 if ! [ -x "$(command -v python3)" ]; then
     echo 'Error: python3 is not installed.' >&2
     echo "####################################"
