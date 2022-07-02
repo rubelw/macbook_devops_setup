@@ -110,11 +110,13 @@ if ! [ -x "$(command -v git)" ]; then
     else
       echo "Proceeding"
       brew install tgenv
+      tgenv install latest
     fi
 else
     echo "#######################"
     echo "tgenv is already installed"
     echo "#######################"
+    tgenv install latest
 fi
 
 
@@ -142,11 +144,13 @@ if ! [ -x "$(command -v git)" ]; then
     else
       echo "Proceeding"
       brew install tfenv
+      tfenv install latest
     fi
 else
     echo "#######################"
     echo "tfenv is already installed"
     echo "#######################"
+    tfenv install latest
 fi
 
 
