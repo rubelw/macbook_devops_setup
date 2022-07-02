@@ -155,7 +155,7 @@ else
     echo "#######################xxx"
     sleep 2
     echo "test"
-    my_which tfenv
+    eval $my_which tfenv
     tfenv install latest
 fi
 
