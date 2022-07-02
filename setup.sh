@@ -148,3 +148,36 @@ else
     echo "tfenv is already installed"
     echo "#######################"
 fi
+
+
+# Install python3
+
+if ! [ -x "$(command -v python3)" ]; then
+    echo 'Error: python3 is not installed.' >&2
+    echo "####################################"
+    echo -n "Would you like to install python3.  "
+    echo "####################################"
+    DEFAULT="y"
+    read -e -p "Proceed [Y/n/q]:" PROCEED
+    # adopt the default, if 'enter' given
+    PROCEED="${PROCEED:-${DEFAULT}}"
+    # change to lower case to simplify following if
+    PROCEED="${PROCEED,,}"
+    # condition for specific letter
+    if [ "${PROCEED}" == "q" ] ; then
+      echo "Quitting"
+      exit
+    # condition for non specific letter (ie anything other than q/y)
+    # if you want to have the active 'y' code in the last section
+    elif [ "${PROCEED}" != "y" ] ; then
+      echo "Not Proceeding"
+    else
+      echo "Proceeding"
+      brew install python
+    fi
+else
+    echo "#######################"
+    echo "python3 is already installed"
+    echo "#######################"
+fi
+
