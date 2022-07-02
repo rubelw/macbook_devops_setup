@@ -157,6 +157,7 @@ if ! [ -x "$(command -v tfenv)" ]; then
             brew unlink terraform
             brew install tfenv
             tfenv install latest
+       fi
 
     fi
 else
