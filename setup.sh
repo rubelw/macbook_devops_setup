@@ -7,7 +7,7 @@ set -e
 
 my_which=`which which`
 
-echo "${my_which}"
+echo "my_which: ${my_which}"
 
 pretty_print() {
   printf "\n%b\n" "$1"
