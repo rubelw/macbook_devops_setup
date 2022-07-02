@@ -181,3 +181,66 @@ else
     echo "#######################"
 fi
 
+
+# Install pip
+
+if ! [ -x "$(command -v pipenv)" ]; then
+    echo 'Error: pipenv is not installed.' >&2
+    echo "####################################"
+    echo -n "Would you like to install pipenv.  "
+    echo "####################################"
+    DEFAULT="y"
+    read -e -p "Proceed [Y/n/q]:" PROCEED
+    # adopt the default, if 'enter' given
+    PROCEED="${PROCEED:-${DEFAULT}}"
+    # change to lower case to simplify following if
+    PROCEED="${PROCEED,,}"
+    # condition for specific letter
+    if [ "${PROCEED}" == "q" ] ; then
+      echo "Quitting"
+      exit
+    # condition for non specific letter (ie anything other than q/y)
+    # if you want to have the active 'y' code in the last section
+    elif [ "${PROCEED}" != "y" ] ; then
+      echo "Not Proceeding"
+    else
+      echo "Proceeding"
+      pip3 install --user pipenv
+    fi
+else
+    echo "#######################"
+    echo "pipenv is already installed"
+    echo "#######################"
+fi
+
+
+# Install virtualenv
+
+if ! [ -x "$(command -v pipenv)" ]; then
+    echo 'Error: pipenv is not installed.' >&2
+    echo "####################################"
+    echo -n "Would you like to install virtualenv.  "
+    echo "####################################"
+    DEFAULT="y"
+    read -e -p "Proceed [Y/n/q]:" PROCEED
+    # adopt the default, if 'enter' given
+    PROCEED="${PROCEED:-${DEFAULT}}"
+    # change to lower case to simplify following if
+    PROCEED="${PROCEED,,}"
+    # condition for specific letter
+    if [ "${PROCEED}" == "q" ] ; then
+      echo "Quitting"
+      exit
+    # condition for non specific letter (ie anything other than q/y)
+    # if you want to have the active 'y' code in the last section
+    elif [ "${PROCEED}" != "y" ] ; then
+      echo "Not Proceeding"
+    else
+      echo "Proceeding"
+      pip3 install --user virtualenv
+    fi
+else
+    echo "#######################"
+    echo "virtualenv is already installed"
+    echo "#######################"
+fi
