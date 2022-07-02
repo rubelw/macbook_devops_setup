@@ -116,6 +116,7 @@ else
     echo "#######################"
     echo "tgenv is already installed"
     echo "#######################"
+    which tgenv
     tgenv install latest
 fi
 
