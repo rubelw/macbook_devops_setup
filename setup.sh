@@ -160,7 +160,7 @@ if ! [ -x "$(command -v tfenv)" ]; then
 else
     echo "#######################"
     echo "tfenv is already installed"
-    echo "#######################xxx"
+    echo "#######################"
     which tfenv
     tfenv install latest
 fi
