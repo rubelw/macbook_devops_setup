@@ -128,7 +128,7 @@ fi
 # Install tfenv
 
 if ! [ -x "$(command -v tfenv)" ]; then
-    echo 'Error: git is not installed.' >&2
+    echo 'Error: tfenv is not installed.' >&2
     echo "####################################"
     echo -n "Would you like to install tgenv.  "
     echo "####################################"
@@ -148,8 +148,16 @@ if ! [ -x "$(command -v tfenv)" ]; then
       echo "Not Proceeding"
     else
       echo "Proceeding"
-      brew install tfenv
-      tfenv install latest
+      if ! [ -x "$(command -v terraform)" ]; then
+            echo "Terraform not installed"
+            brew install tfenv
+            tfenv install latest
+       else
+            echo "Unlinking installed terraform"
+            brew unlink terraform
+            brew install tfenv
+            tfenv install latest
+
     fi
 else
     echo "#######################"
