@@ -120,7 +120,7 @@ else
     echo "#######################"
     echo "tgenv is already installed"
     echo "#######################"
-    which tgenv
+    eval $my_which tgenv
     tgenv install latest
 fi
 
