@@ -1,4 +1,4 @@
-!/usr/bin/env bash
+#!/usr/bin/env bash
 
 # This is part of a larger script for setting a mac for python development.
 set -e
