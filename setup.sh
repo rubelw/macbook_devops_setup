@@ -5,9 +5,6 @@ set -e
 
 # Shared functions
 
-my_which=`which which`
-
-echo "my_which: ${my_which}"
 
 pretty_print() {
   printf "\n%b\n" "$1"
@@ -120,7 +117,7 @@ else
     echo "#######################"
     echo "tgenv is already installed"
     echo "#######################"
-    eval $my_which tgenv
+    which tgenv
     tgenv install latest
 fi
 
@@ -164,15 +161,12 @@ else
     echo "#######################"
     echo "tfenv is already installed"
     echo "#######################xxx"
-    sleep 2
-    echo "test"
-    eval $my_which tfenv
+    which tfenv
     tfenv install latest
 fi
 
 
 # Install python3
-echo "test2"
 if ! [ -x "$(command -v python3)" ]; then
     echo 'Error: python3 is not installed.' >&2
     echo "####################################"
@@ -263,5 +257,36 @@ if ! [ -x "$(command -v virtualenv)" ]; then
 else
     echo "#######################"
     echo "virtualenv is already installed"
+    echo "#######################"
+fi
+
+# Install virtualenv
+
+if ! [ -x "$(command -v aws)" ]; then
+    echo 'Error: awscli is not installed.' >&2
+    echo "####################################"
+    echo -n "Would you like to install awscli.  "
+    echo "####################################"
+    DEFAULT="y"
+    read -e -p "Proceed [Y/n/q]:" PROCEED
+    # adopt the default, if 'enter' given
+    PROCEED="${PROCEED:-${DEFAULT}}"
+    # change to lower case to simplify following if
+    PROCEED="${PROCEED,,}"
+    # condition for specific letter
+    if [ "${PROCEED}" == "q" ] ; then
+      echo "Quitting"
+      exit
+    # condition for non specific letter (ie anything other than q/y)
+    # if you want to have the active 'y' code in the last section
+    elif [ "${PROCEED}" != "y" ] ; then
+      echo "Not Proceeding"
+    else
+      echo "Proceeding"
+      brew install awscli
+    fi
+else
+    echo "#######################"
+    echo "awscli is already installed"
     echo "#######################"
 fi
