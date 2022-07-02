@@ -5,6 +5,8 @@ set -e
 
 # Shared functions
 
+my_which=`which which`
+
 pretty_print() {
   printf "\n%b\n" "$1"
 }
@@ -152,7 +154,7 @@ else
     echo "tfenv is already installed"
     echo "#######################xxx"
     echo "test"
-    which tfenv
+    my_which tfenv
     tfenv install latest
 fi
 
