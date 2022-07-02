@@ -145,18 +145,18 @@ if ! [ -x "$(command -v tfenv)" ]; then
     # condition for non specific letter (ie anything other than q/y)
     # if you want to have the active 'y' code in the last section
     elif [ "${PROCEED}" != "y" ] ; then
-      echo "Not Proceeding"
+      echo "Not Proceeding";
     else
-      echo "Proceeding"
+      echo "Proceeding";
       if ! [ -x "$(command -v terraform)" ]; then
-            echo "Terraform not installed"
-            brew install tfenv
-            tfenv install latest
+            echo "Terraform not installed";
+            brew install tfenv;
+            tfenv install latest;
        else
-            echo "Unlinking installed terraform"
-            brew unlink terraform
-            brew install tfenv
-            tfenv install latest
+            echo "Unlinking installed terraform";
+            brew unlink terraform;
+            brew install tfenv;
+            tfenv install latest;
        fi
 
     fi
