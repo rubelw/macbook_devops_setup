@@ -290,3 +290,67 @@ else
     echo "awscli is already installed"
     echo "#######################"
 fi
+
+
+# Install node
+
+if ! [ -x "$(command -v node)" ]; then
+    echo 'Error: node is not installed.' >&2
+    echo "####################################"
+    echo -n "Would you like to install node.  "
+    echo "####################################"
+    DEFAULT="y"
+    read -e -p "Proceed [Y/n/q]:" PROCEED
+    # adopt the default, if 'enter' given
+    PROCEED="${PROCEED:-${DEFAULT}}"
+    # change to lower case to simplify following if
+    PROCEED="${PROCEED,,}"
+    # condition for specific letter
+    if [ "${PROCEED}" == "q" ] ; then
+      echo "Quitting"
+      exit
+    # condition for non specific letter (ie anything other than q/y)
+    # if you want to have the active 'y' code in the last section
+    elif [ "${PROCEED}" != "y" ] ; then
+      echo "Not Proceeding"
+    else
+      echo "Proceeding"
+      brew install node
+    fi
+else
+    echo "#######################"
+    echo "node is already installed"
+    echo "#######################"
+fi
+
+
+# Install rbenv
+
+if ! [ -x "$(command -v rbenv)" ]; then
+    echo 'Error: rbenv is not installed.' >&2
+    echo "####################################"
+    echo -n "Would you like to install rbenv.  "
+    echo "####################################"
+    DEFAULT="y"
+    read -e -p "Proceed [Y/n/q]:" PROCEED
+    # adopt the default, if 'enter' given
+    PROCEED="${PROCEED:-${DEFAULT}}"
+    # change to lower case to simplify following if
+    PROCEED="${PROCEED,,}"
+    # condition for specific letter
+    if [ "${PROCEED}" == "q" ] ; then
+      echo "Quitting"
+      exit
+    # condition for non specific letter (ie anything other than q/y)
+    # if you want to have the active 'y' code in the last section
+    elif [ "${PROCEED}" != "y" ] ; then
+      echo "Not Proceeding"
+    else
+      echo "Proceeding"
+      brew install rbenv
+    fi
+else
+    echo "#######################"
+    echo "rbenv is already installed"
+    echo "#######################"
+fi
