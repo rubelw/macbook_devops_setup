@@ -150,6 +150,7 @@ else
     echo "#######################"
     echo "tfenv is already installed"
     echo "#######################"
+    which tfenv
     tfenv install latest
 fi
 
