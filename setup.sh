@@ -92,7 +92,7 @@ fi
 
 # Install tgenv
 
-if ! [ -x "$(command -v git)" ]; then
+if ! [ -x "$(command -v tgenv)" ]; then
     echo 'Error: git is not installed.' >&2
     echo "####################################"
     echo -n "Would you like to install tgenv.  "
@@ -127,7 +127,7 @@ fi
 
 # Install tfenv
 
-if ! [ -x "$(command -v git)" ]; then
+if ! [ -x "$(command -v tfenv)" ]; then
     echo 'Error: git is not installed.' >&2
     echo "####################################"
     echo -n "Would you like to install tgenv.  "
